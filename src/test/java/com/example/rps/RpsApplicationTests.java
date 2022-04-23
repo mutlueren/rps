@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class RpsApplicationTests {
@@ -18,22 +17,25 @@ class RpsApplicationTests {
     void rpsBrain_rock_test() {
         String response = rpsService.rpsBrain("rock");
         assertNotNull(response);
+        assertNotEquals("You insert a wrong choice!",response);
     }
 
     @Test
     void rpsBrain_paper_test() {
         String response = rpsService.rpsBrain("paper");
         assertNotNull(response);
+        assertNotEquals("You insert a wrong choice!",response);
     }
 
     @Test
     void rpsBrain_scissors_test() {
         String response = rpsService.rpsBrain("scissors");
         assertNotNull(response);
+        assertNotEquals("You insert a wrong choice!",response);
     }
 
     @Test
-    void rpsBrain_wrong_test() {
+    void rpsBrain_undefined_test() {
         String response = rpsService.rpsBrain("undefined");
         assertEquals("You insert a wrong choice!",response);
     }
